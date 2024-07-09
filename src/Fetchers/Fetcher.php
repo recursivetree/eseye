@@ -211,9 +211,9 @@ class Fetcher implements FetcherInterface
         // Include some basic headers to those already passed in. Everything
         // is considered to be json.
         $headers = array_merge($headers, [
-            'Accept'       => 'application/json',
+            'Accept' => 'application/json',
             'Content-Type' => 'application/json',
-            'User-Agent'   => 'Eseye/' . Eseye::VERSION . '/' . Configuration::getInstance()->http_user_agent,
+            'User-Agent' => 'Eseye/' . Eseye::VERSION . '/' . Configuration::getInstance()->http_user_agent,
         ]);
 
         // Add some debug logging and start measuring how long the request took.

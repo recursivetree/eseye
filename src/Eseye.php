@@ -27,7 +27,6 @@ use Psr\Http\Message\UriInterface;
 use Psr\Log\LoggerInterface;
 use Psr\SimpleCache\CacheInterface;
 use Seat\Eseye\Access\AccessInterface;
-use Seat\Eseye\Access\AccessTokenRefresher;
 use Seat\Eseye\Access\AccessTokenRefresherInterface;
 use Seat\Eseye\Access\CheckAccess;
 use Seat\Eseye\Containers\EsiAuthentication;
@@ -152,7 +151,6 @@ class Eseye
 
         return $this;
     }
-
 
     /**
      * @throws InvalidContainerDataException
@@ -370,10 +368,10 @@ class Eseye
 
         return Uri::fromParts([
             'scheme' => $this->getConfiguration()->esi_scheme,
-            'host'   => $this->getConfiguration()->esi_host,
-            'port'   => $this->getConfiguration()->esi_port,
-            'path'   => rtrim($this->getVersion(), '/') . $this->mapDataToUri($endpoint, $data),
-            'query'  => http_build_query($query_params),
+            'host' => $this->getConfiguration()->esi_host,
+            'port' => $this->getConfiguration()->esi_port,
+            'path' => rtrim($this->getVersion(), '/') . $this->mapDataToUri($endpoint, $data),
+            'query' => http_build_query($query_params),
         ]);
     }
 
@@ -550,6 +548,7 @@ class Eseye
 
     /**
      * @return EsiAuthentication
+     *
      * @throws InvalidAuthenticationException
      * @throws InvalidContainerDataException
      */
