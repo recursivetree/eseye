@@ -24,6 +24,7 @@ namespace Seat\Eseye\Containers;
 
 use GuzzleHttp\Psr7\HttpFactory;
 use Psr\Http\Client\ClientInterface;
+use Seat\Eseye\Access\AccessTokenRefresher;
 use Seat\Eseye\Cache\NullCache;
 use Seat\Eseye\Fetchers\Fetcher;
 use Seat\Eseye\Log\NullLogger;
@@ -63,6 +64,7 @@ class EsiConfiguration extends AbstractArrayAccess
         'sso_scheme'                 => 'https',
         'sso_host'                   => 'login.eveonline.com',
         'sso_port'                   => 443,
+        'access_token_refresher'     => AccessTokenRefresher::class,
 
         // Fetcher
         'fetcher'                    => Fetcher::class,
